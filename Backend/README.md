@@ -76,3 +76,12 @@ curl http://localhost:8081/api/articles/1
 ```bash
 git log --oneline --decorate
 ```
+
+## 60-Second Demo
+
+```bash
+mvn spring-boot:run
+curl http://localhost:8081/api/articles/1
+curl http://localhost:8081/api/team/1
+curl http://localhost:8081/api/success/2
+```
