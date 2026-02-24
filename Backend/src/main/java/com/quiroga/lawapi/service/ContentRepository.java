@@ -42,23 +42,23 @@ public class ContentRepository {
     private final List<TeamMember> teamMembers = List.of(
             new TeamMember(
                     1L,
-                    "Ana Quiroga",
+                    "Héctor E. Quiroga",
                     "Founding Attorney",
-                    "Over 15 years representing families in immigration and civil matters.",
+                    " Héctor Quiroga works as a partner at the Quiroga Law Office, PLLC, where he focus his practice on immigration. He enjoys photography. He also enjoys coaching his son’s co-ed soccer team and spending time with his family..",
                     "https://example.com/images/ana-quiroga.jpg"
             ),
             new TeamMember(
                     2L,
-                    "Luis Ramirez",
-                    "Senior Associate",
-                    "Focuses on personal injury litigation and settlement strategy.",
+                    "Casey Quiroga",
+                    "Immigration Lawyer",
+                    "Casey Quiroga is a co-founder of the Quiroga Law Office, PLLC, a firm focused solely in immigration matters. Casey’s main focus is on employment, investor, and family petitions.",
                     "https://example.com/images/luis-ramirez.jpg"
             ),
             new TeamMember(
                     3L,
-                    "Marisol Vega",
+                    "Maria Quiroga",
                     "Client Relations Manager",
-                    "Guides clients through documentation and case status updates.",
+                    "Maria joined Quiroga Law Office in June 2016 and began practicing Immigration law. She was born and raised in Bogota, Colombia. Maria immigrated to the United States with her parents in pursuit of the American dream as a young adult",
                     "https://example.com/images/marisol-vega.jpg"
             )
     );

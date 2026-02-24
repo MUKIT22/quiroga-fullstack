@@ -77,7 +77,7 @@ curl http://localhost:8081/api/articles/1
 git log --oneline --decorate
 ```
 
-## 60-Second Demo
+## Demo
 
 ```bash
 mvn spring-boot:run
