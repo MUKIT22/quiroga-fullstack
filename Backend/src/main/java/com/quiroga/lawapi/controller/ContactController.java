@@ -20,6 +20,10 @@ public class ContactController {
     // Basic email validation: must have something@something.tld
     private static final Pattern EMAIL_PATTERN =
             Pattern.compile("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$");
+    // Input length limits
+    private static final int MAX_NAME_LENGTH    = 100;
+    private static final int MAX_EMAIL_LENGTH   = 254;  // RFC 5321 maximum
+    private static final int MAX_MESSAGE_LENGTH = 2000;
 
     @PostMapping
     public ResponseEntity<Map<String, String>> handleContactForm(
@@ -38,6 +42,12 @@ public class ContactController {
                     .badRequest()
                     .body(Map.of("error", "Name is required."));
         }
+        if (name.length() > MAX_NAME_LENGTH) {
+            writeLog("[" + timestamp + "] Submission failed – name too long (" + name.length() + " chars)");
+            return ResponseEntity
+                    .badRequest()
+                    .body(Map.of("error", "Name must be " + MAX_NAME_LENGTH + " characters or fewer."));
+        }
 
         // --- Validate email -----------------------------------------------
         if (email.isEmpty() || !EMAIL_PATTERN.matcher(email).matches()) {
@@ -46,6 +56,12 @@ public class ContactController {
                     .badRequest()
                     .body(Map.of("error", "Missing or invalid email address."));
         }
+        if (email.length() > MAX_EMAIL_LENGTH) {
+            writeLog("[" + timestamp + "] Submission failed – email too long (" + email.length() + " chars)");
+            return ResponseEntity
+                    .badRequest()
+                    .body(Map.of("error", "Email must be " + MAX_EMAIL_LENGTH + " characters or fewer."));
+        }
 
         // --- Validate message ---------------------------------------------
         if (message.isEmpty()) {
@@ -53,6 +69,12 @@ public class ContactController {
             return ResponseEntity
                     .badRequest()
                     .body(Map.of("error", "Message cannot be empty."));
+        }
+        if (message.length() > MAX_MESSAGE_LENGTH) {
+            writeLog("[" + timestamp + "] Submission failed – message too long (" + message.length() + " chars, " + email + ")");
+            return ResponseEntity
+                    .badRequest()
+                    .body(Map.of("error", "Message must be " + MAX_MESSAGE_LENGTH + " characters or fewer."));
         }
 
         // --- Log successful submission -------------------------------------

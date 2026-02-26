@@ -63,7 +63,19 @@ OK, producing a log entry that was empty or misleading.
 Each failure writes a descriptive line to the log and returns `400 Bad Request` with a clear error
 message.
 
+---
 
+### Bug — No input-length limits on contact form fields (possible bug)
+
+**File:** `Backend/src/main/java/com/quiroga/lawapi/controller/ContactController.java`
+
+**Problem:** A determined user could submit arbitrarily large payloads — a multi-megabyte `message`
+body, an absurdly long `name`, or an oversized email string. This could bloat the log file, exhaust
+memory during string processing, or cause issues with any future email integration.
+
+**Fix:** Added three named constants (`MAX_NAME_LENGTH = 100`, `MAX_EMAIL_LENGTH = 254` per RFC 5321,
+`MAX_MESSAGE_LENGTH = 2000`) and a length check for each field after the empty-check. Oversized
+submissions are rejected with `400 Bad Request` and a clear message stating the allowed limit.
 
 ---
 
@@ -83,7 +95,9 @@ message.
    `cors.allowed-origins` property would make it trivial to lock them down for production without
    changing Java source.
 
-4. **Add input-length limits to the contact form.**  
-   A determined user could submit a 1 MB message body. Adding `@Size` constraints (or manual
-   length checks) on `name`, `email`, and `message` would protect the log file and any future
-   email integration.
+4. **Write automated tests.**  
+   At minimum: `@WebMvcTest` slices for each controller (happy path + validation failures) covering
+   all the length-limit and blank-field edge cases.
+
+
+
