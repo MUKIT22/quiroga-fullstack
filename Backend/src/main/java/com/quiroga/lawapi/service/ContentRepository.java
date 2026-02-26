@@ -66,26 +66,26 @@ public class ContentRepository {
     private final List<SuccessStory> successStories = List.of(
             new SuccessStory(
                     1L,
-                    "Six-Figure Auto Collision Settlement",
-                    "J. M.",
-                    "Personal Injury",
-                    "Our team secured a six-figure settlement after proving long-term medical impact and lost income.",
+                    "Forever Thankful",
+                    "Teresita",
+                    "Client",
+                    "They did a great job. Thank you for helping us in this difficult process. We are forever thankful!",
                     LocalDate.of(2025, 11, 20)
             ),
             new SuccessStory(
                     2L,
-                    "Family Reunification Approved",
-                    "C. R.",
-                    "Immigration",
-                    "We built a complete petition package that led to approval and reunification within expected processing time.",
+                    "Above and Beyond",
+                    "Ajmal",
+                    "Client",
+                    "Hector and his office stood beside me every step of the way. They went above and beyond their duty to make this a reality for me. From me and my family, thank you!",
                     LocalDate.of(2025, 12, 5)
             ),
             new SuccessStory(
                     3L,
-                    "Denied Claim Reopened Successfully",
-                    "P. S.",
-                    "Workers' Compensation",
-                    "After appeal, the claim was reopened and benefits were restored with retroactive payment.",
+                    "Very Happy With the Results",
+                    "Nubia",
+                    "Client",
+                    "The Quiroga Law Office and Greg helped me get through this process. They did a great job and I am very happy with the results. Thanks!",
                     LocalDate.of(2026, 1, 18)
             )
     );
