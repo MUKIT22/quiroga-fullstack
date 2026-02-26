@@ -13,6 +13,118 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Open+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* ── Dynamic content helpers ─────────────────────────────── */
+      .dynamic-loading {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+        color: #5a5248;
+        padding: 2rem 0;
+      }
+      .dynamic-loading--light { color: rgba(255,255,255,0.8); }
+      .dynamic-loading__spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid currentColor;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        flex-shrink: 0;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+
+      .dynamic-error {
+        grid-column: 1 / -1;
+        background: #fff4f4;
+        border-left: 4px solid #c0392b;
+        color: #7b2d27;
+        padding: 1.25rem 1.5rem;
+        border-radius: 6px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .dynamic-error--light {
+        background: rgba(255,255,255,0.12);
+        border-left-color: #F8941D;
+        color: #fff;
+      }
+      .dynamic-empty {
+        grid-column: 1 / -1;
+        color: #888;
+        font-style: italic;
+        padding: 1.5rem 0;
+        font-family: 'Open Sans', sans-serif;
+      }
+      .dynamic-empty--light { color: rgba(255,255,255,0.7); }
+
+      /* ── Victory cards grid ──────────────────────────────────── */
+      .victories__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.75rem;
+        margin-bottom: 2rem;
+      }
+      .victory-card {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 12px;
+        padding: 2rem 1.75rem 1.75rem;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .victory-card__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.25rem;
+      }
+      .victory-card__type {
+        background: #F8941D;
+        color: #fff;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.25em 0.75em;
+        border-radius: 100px;
+      }
+      .victory-card__date {
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.55);
+      }
+      .victory-card__title {
+        font-family: 'Lora', serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.35;
+        color: #fff;
+        margin: 0.25rem 0;
+      }
+      .victory-card__story {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.92rem;
+        line-height: 1.65;
+        color: rgba(255,255,255,0.8);
+        flex: 1;
+      }
+      .card__thumbnail--no-image {
+        background: linear-gradient(135deg, #1a1210 0%, #3a2010 100%);
+        min-height: 60px;
+        display: flex;
+        align-items: flex-end;
+        padding: 0.75rem 1rem;
+      }
+    </style>
   </head>
   <body>
 
@@ -200,59 +312,8 @@
             </p>
           </div>
 
-          <div class="team__grid">
-
-            <article class="card card--profile">
-              <div class="card__image-wrapper">
-                <div class="card__avatar" aria-hidden="true">CQ</div>
-                <div class="card__image-overlay">
-                  <div class="card__social">
-                    <a href="#" class="card__social-link" aria-label="View Casey Quiroga's profile">&#8594;</a>
-                  </div>
-                </div>
-              </div>
-              <div class="card__body">
-                <h3 class="card__name">Casey Quiroga</h3>
-                <p class="card__role">Immigration Attorney</p>
-                <p class="card__bio">Passionate advocate for immigrant families
-                  across Washington State and beyond.</p>
-              </div>
-            </article>
-
-            <article class="card card--profile">
-              <div class="card__image-wrapper">
-                <div class="card__avatar" aria-hidden="true">HQ</div>
-                <div class="card__image-overlay">
-                  <div class="card__social">
-                    <a href="#" class="card__social-link" aria-label="View Héctor Quiroga's profile">&#8594;</a>
-                  </div>
-                </div>
-              </div>
-              <div class="card__body">
-                <h3 class="card__name">Héctor Quiroga</h3>
-                <p class="card__role">Founding Attorney</p>
-                <p class="card__bio">First-generation immigrant and founder. Avvo 10.0 &amp; Super Lawyers Rising Stars.</p>
-              </div>
-            </article>
-
-            <article class="card card--profile">
-              <div class="card__image-wrapper">
-                <div class="card__avatar" aria-hidden="true">MQ</div>
-                <div class="card__image-overlay">
-                  <div class="card__social">
-                    <a href="#" class="card__social-link" aria-label="View Maria Quiroga's profile">&#8594;</a>
-                  </div>
-                </div>
-              </div>
-              <div class="card__body">
-                <h3 class="card__name">Maria Quiroga</h3>
-                <p class="card__role">Immigration Attorney</p>
-                <p class="card__bio">Dedicated to helping clients navigate citizenship
-                  and waiver processes with clarity and compassion.</p>
-              </div>
-            </article>
-
-          </div>
+          <!-- Team cards are rendered dynamically by js/main.js -->
+          <div class="team__grid" id="team-grid"></div>
         </div>
       </section>
 
@@ -268,84 +329,8 @@
             </p>
           </div>
 
-          <div class="articles__grid">
-
-            <article class="card card--article">
-              <div class="card__thumbnail">
-                <img
-                  src="images/article-1.jpg"
-                  alt="Title 8 Immigration Processing"
-                  class="card__thumbnail-img"
-                  loading="lazy"
-                />
-                <span class="card__category">Immigration Policy</span>
-              </div>
-              <div class="card__body">
-                <div class="card__meta">
-                  <time class="card__date">2025</time>
-                </div>
-                <h3 class="card__title">
-                  Historic Decline in 2025 Title 8 Immigration Processing: Policy Shift or Delayed Impact?
-                </h3>
-                <p class="card__excerpt">
-                  The year 2025 has brought a significant decrease in immigration processing under
-                  Title 8, which regulates admissions and deportations in the United States.
-                </p>
-                <a href="https://www.quirogalawoffice.com/historic-decline-in-2025-title-8-immigration-processing-policy-shift-or-delayed-impact/" class="card__link" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
-              </div>
-            </article>
-
-            <article class="card card--article">
-              <div class="card__thumbnail">
-                <img
-                  src="images/article-2.jpg"
-                  alt="Immigration Courts"
-                  class="card__thumbnail-img"
-                  loading="lazy"
-                />
-                <span class="card__category">Immigration Courts</span>
-              </div>
-              <div class="card__body">
-                <div class="card__meta">
-                  <time class="card__date">2025</time>
-                </div>
-                <h3 class="card__title">
-                  Dismissals in Immigration Courts: Restructuring or Political Repression?
-                </h3>
-                <p class="card__excerpt">
-                  In February 2025, the administration dismissed 20 immigration judges, including
-                  13 who had not yet been sworn in.
-                </p>
-                <a href="https://www.quirogalawoffice.com/dismissals-in-immigration-courts-administrative-restructuring-or-political-repression/" class="card__link" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
-              </div>
-            </article>
-
-            <article class="card card--article">
-              <div class="card__thumbnail">
-                <img
-                  src="images/article-3.png"
-                  alt="Guantanamo"
-                  class="card__thumbnail-img"
-                  loading="lazy"
-                />
-                <span class="card__category">Immigration News</span>
-              </div>
-              <div class="card__body">
-                <div class="card__meta">
-                  <time class="card__date">2025</time>
-                </div>
-                <h3 class="card__title">
-                  Guantanamo Expansion for Non-Criminal Immigrants Raises Concern
-                </h3>
-                <p class="card__excerpt">
-                  President Trump's decision to expand the detention facility at Guantanamo Bay
-                  to house up to 30,000 migrants has sparked widespread concern.
-                </p>
-                <a href="https://www.quirogalawoffice.com/potential-expansion-of-guantanamo-for-non-criminal-immigrants-sparks-concern/" class="card__link" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
-              </div>
-            </article>
-
-          </div>
+          <!-- Article cards are rendered dynamically by js/main.js -->
+          <div class="articles__grid" id="articles-grid"></div>
 
           <div class="articles__footer">
             <a href="#" class="btn btn--secondary btn--md">View All Articles</a>
@@ -365,70 +350,8 @@
             </p>
           </div>
 
-          <!-- CSS-only slider: radio inputs drive slide visibility via sibling selector -->
-          <div class="victories__slider" aria-label="Client testimonials slider">
-
-            <input type="radio" name="vslider" id="vs1" class="victories__radio" checked>
-            <input type="radio" name="vslider" id="vs2" class="victories__radio">
-            <input type="radio" name="vslider" id="vs3" class="victories__radio">
-            <input type="radio" name="vslider" id="vs4" class="victories__radio">
-
-            <div class="victories__slides">
-
-              <div class="victories__slide" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80')">
-                <div class="victories__slide-overlay">
-                  <div class="victories__slide-content">
-                    <span class="victories__quote">&ldquo;</span>
-                    <p class="victories__text">They did a great job. Thank you for helping us in this difficult process. We are forever thankful!</p>
-                    <p class="victories__name">— Teresita</p>
-                    <span class="victories__tag">Client</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="victories__slide" style="background-image: url('https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?w=1400&q=80')">
-                <div class="victories__slide-overlay">
-                  <div class="victories__slide-content">
-                    <span class="victories__quote">&ldquo;</span>
-                    <p class="victories__text">Hector and his office stood beside me every step of the way. They went above and beyond their duty to make this a reality for me. From me and my family, thank you!</p>
-                    <p class="victories__name">— Ajmal</p>
-                    <span class="victories__tag">Client</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="victories__slide" style="background-image: url('https://images.unsplash.com/photo-1556745753-b2904692b3cd?w=1400&q=80')">
-                <div class="victories__slide-overlay">
-                  <div class="victories__slide-content">
-                    <span class="victories__quote">&ldquo;</span>
-                    <p class="victories__text">I cannot say enough how much we appreciate everyone at Quiroga Law. They helped us from start to finish, and were always available for our many questions.</p>
-                    <p class="victories__name">— Rick C.</p>
-                    <span class="victories__tag">Client</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="victories__slide" style="background-image: url('https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=1400&q=80')">
-                <div class="victories__slide-overlay">
-                  <div class="victories__slide-content">
-                    <span class="victories__quote">&ldquo;</span>
-                    <p class="victories__text">Thanks to Quiroga Law Office, we were granted an interview with USCIS. We would highly recommend them to anyone who may need an immigration attorney!</p>
-                    <p class="victories__name">— Daniel D.</p>
-                    <span class="victories__tag">Client</span>
-                  </div>
-                </div>
-              </div>
-
-            </div><!-- /.victories__slides -->
-
-            <div class="victories__dots" role="tablist" aria-label="Slide indicators">
-              <label for="vs1" class="victories__dot" role="tab" aria-label="Slide 1"></label>
-              <label for="vs2" class="victories__dot" role="tab" aria-label="Slide 2"></label>
-              <label for="vs3" class="victories__dot" role="tab" aria-label="Slide 3"></label>
-              <label for="vs4" class="victories__dot" role="tab" aria-label="Slide 4"></label>
-            </div>
-
-          </div><!-- /.victories__slider -->
+          <!-- Victory cards are rendered dynamically by js/main.js -->
+          <div class="victories__grid" id="victories-grid"></div>
 
           <div class="victories__disclaimer">
             <p>* Past results do not guarantee future outcomes. Every case is unique and must be evaluated on its own merits.</p>
@@ -535,5 +458,6 @@
       </div>
     </footer>
 
+    <script src="js/main.js"></script>
   </body>
 </html>
