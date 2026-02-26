@@ -14,6 +14,7 @@ const API_BASE = 'http://localhost:8081';
 function getInitials(name) {
   return name
     .split(' ')
+    .filter(word => word.length > 0)
     .map(word => word[0])
     .join('')
     .substring(0, 2)

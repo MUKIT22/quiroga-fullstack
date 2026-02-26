@@ -31,12 +31,28 @@ public class ContactController {
 
         String timestamp = LocalDateTime.now().format(FORMATTER);
 
+        // --- Validate name ------------------------------------------------
+        if (name.isEmpty()) {
+            writeLog("[" + timestamp + "] Submission failed – name is blank");
+            return ResponseEntity
+                    .badRequest()
+                    .body(Map.of("error", "Name is required."));
+        }
+
         // --- Validate email -----------------------------------------------
         if (email.isEmpty() || !EMAIL_PATTERN.matcher(email).matches()) {
             writeLog("[" + timestamp + "] Submission failed – missing or invalid email");
             return ResponseEntity
                     .badRequest()
                     .body(Map.of("error", "Missing or invalid email address."));
+        }
+
+        // --- Validate message ---------------------------------------------
+        if (message.isEmpty()) {
+            writeLog("[" + timestamp + "] Submission failed – message is blank (" + email + ")");
+            return ResponseEntity
+                    .badRequest()
+                    .body(Map.of("error", "Message cannot be empty."));
         }
 
         // --- Log successful submission -------------------------------------

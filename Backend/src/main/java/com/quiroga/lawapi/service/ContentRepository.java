@@ -44,7 +44,7 @@ public class ContentRepository {
                     1L,
                     "Héctor E. Quiroga",
                     "Founding Attorney",
-                    " Héctor Quiroga works as a partner at the Quiroga Law Office, PLLC, where he focus his practice on immigration. He enjoys photography. He also enjoys coaching his son’s co-ed soccer team and spending time with his family..",
+                    "Héctor Quiroga works as a partner at the Quiroga Law Office, PLLC, where he focuses his practice on immigration. He enjoys photography. He also enjoys coaching his son's co-ed soccer team and spending time with his family.",
                     "https://example.com/images/ana-quiroga.jpg"
             ),
             new TeamMember(
